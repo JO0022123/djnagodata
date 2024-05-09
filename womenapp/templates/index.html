@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>hello</h1>
+<button class="btn btn-primary d-block mx-auto mb-5">
+    <a href="{% url 'adddata' %}" class="text-white">add data</a></button>
+<table class="table">
+    <tr>
+        <th>rollno</th>
+        <th>name</th>
+        <th>age</th>
+        <th>city</th>
+        <th>action</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <td>{{x.rollno}}</td>
+        <td>{{x.name}}</td>
+        <td>{{x.age}}</td>
+        <td>{{x.city}}</td>
+        <td>
+       <a href="{% url 'edit' x.id %}"><button class="btn btn-success">edit </button></a>
+       <a href="{% url 'delete' x.id %}"><button class="btn btn-danger">delete</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>
